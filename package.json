@@ -1,0 +1,19 @@
+{
+  "name": "serverless-functions",
+  "version": "1.0.0",
+  "description": "Testing out serverless functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "#"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-seanho96:seanho96/serverless-functions.git"
+  },
+  "author": "Sean Ho",
+  "license": "ISC",
+  "devDependencies": {
+    "node-fetch": "^3.0.0"
+  }
+}
