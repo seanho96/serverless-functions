@@ -1,9 +1,12 @@
 
 import fetch from 'node-fetch'
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 const handler = async function (event) {
   const eventBody = JSON.parse(event.body)
-  const POKE_API = 'https://pokeapi.co/api/v2/pokedex/' + eventBody.region
+  const POKE_API = `https://pokeapi.co/api/v2/${process.env.SECRET_KEY}/` + eventBody.region
 
   try {
       const response = await fetch(POKE_API)
