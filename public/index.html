@@ -9,37 +9,37 @@
   <body>
     <h1>Serverless Functions</h1>
     <button id="fetch-btn">Fetch</button>
-    <button id="fetch-kanto-btn">Fetch Kanto Pokedex</button>
-    <button id="fetch-hoenn-btn">Fetch Hoenn Pokedex</button>
-    <p id="response-output">Response Placeholder</p>
+    <button id="fetch-ditto-btn">Fetch Ditto Pokemon</button>
+    <button id="fetch-charmander-btn">Fetch Charmander Pokemon</button>
+    <pre id="response-output">Response Placeholder</pre>
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const fetchBtn = document.getElementById('fetch-btn')
-        const fetchKantoBtn = document.getElementById('fetch-kanto-btn')
-        const fetchHoennBtn = document.getElementById('fetch-hoenn-btn')
+        const fetchDittoBtn = document.getElementById('fetch-ditto-btn')
+        const fetchCharmanderBtn = document.getElementById('fetch-charmander-btn')
         const responseText = document.getElementById('response-output')
 
-        fetchKantoBtn.addEventListener('click', async () => {
+        fetchDittoBtn.addEventListener('click', async () => {
           const response = await fetch('/.netlify/functions/pokedex', {
             method: 'POST',
             body: JSON.stringify({
-              region: 'kanto'
+              pokemon: 'ditto'
             })
           }).then(response => response.json())
 
-          responseText.innerText = JSON.stringify(response)
+          responseText.innerText = JSON.stringify(response, null, 2)
         })
 
-        fetchHoennBtn.addEventListener('click', async () => {
+        fetchCharmanderBtn.addEventListener('click', async () => {
           const response = await fetch('/.netlify/functions/pokedex', {
             method: 'POST',
             body: JSON.stringify({
-              region: 'hoenn'
+              pokemon: 'charmander'
             })
           }).then(response => response.json())
 
-          responseText.innerText = JSON.stringify(response)
+          responseText.innerText = JSON.stringify(response, null, 2)
         })
 
         fetchBtn.addEventListener('click', async () => {
@@ -47,7 +47,7 @@
             response => response.json()
           )
 
-          responseText.innerText = JSON.stringify(response)
+          responseText.innerText = JSON.stringify(response, null, 2)
         })
       })
     </script>

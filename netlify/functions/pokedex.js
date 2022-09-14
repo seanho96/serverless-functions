@@ -6,7 +6,7 @@ dotenv.config();
 
 const handler = async function (event) {
   const eventBody = JSON.parse(event.body)
-  const POKE_API = `https://pokeapi.co/api/v2/${process.env.SECRET_KEY}/` + eventBody.region
+  const POKE_API = `https://pokeapi.co/api/v2/pokemon/${eventBody.pokemon}`
 
   try {
       const response = await fetch(POKE_API)
@@ -15,7 +15,7 @@ const handler = async function (event) {
       return {
         statusCode: 200,
         body: JSON.stringify({
-          pokemon: data.pokemon_entries
+          pokemon: data
         })
         }
     } catch (error) {
